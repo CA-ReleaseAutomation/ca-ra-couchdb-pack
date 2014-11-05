@@ -1,0 +1,62 @@
+{
+   "SCRIPTAction" : {
+      "actionPack" : {
+         "name" : "CouchDB",
+         "category" : "CouchDB",
+         "description" : "Integration actions for the CouchDB NoSQL document database.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1  ",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/couchdb/couchdb.jpg",
+         "lastModified" : "2014-11-04T23:55:14.732-08:00",
+         "tags" : [ ],
+         "packageName" : "couchdb"
+      },
+      "name" : "CouchDB - Start Service",
+      "description" : "Start the CouchDB server as a service.",
+      "inputParamList" : [ {
+         "name" : "Service Name",
+         "type" : "String",
+         "description" : "The name of the CouchDB service.",
+         "required" : false,
+         "defaultValue" : "Apache CouchDB",
+         "variableName" : "servicename",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      } ],
+      "type" : "SCRIPT",
+      "complete" : true,
+      "lastModified" : "2014-11-04T23:57:48.881-08:00",
+      "className" : "CouchDBStartService",
+      "packageName" : "com.ca.couchdb",
+      "shellType" : "DEFAULT_OS",
+      "scripts" : [ {
+         "content" : "net start \"${Service Name}\"",
+         "execDir" : "",
+         "name" : "CouchDBStartService1415174268876.bat",
+         "osType" : "WINDOWS",
+         "overwriteOutput" : true,
+         "timeout" : 30,
+         "waitForProcess" : true
+      }, {
+         "content" : "sudo service couchdb start",
+         "execDir" : "",
+         "name" : "CouchDBStartService1415174268879.sh",
+         "osType" : "LINUX",
+         "overwriteOutput" : true,
+         "timeout" : 30,
+         "waitForProcess" : true
+      } ]
+   }
+}

@@ -1,0 +1,16 @@
+{
+   "ActionPack" : {
+      "name" : "CouchDB",
+      "category" : "CouchDB",
+      "description" : "Integration actions for the CouchDB NoSQL document database.",
+      "author" : "CA Technologies",
+      "dependencies" : "",
+      "platform" : "Windows and Linux",
+      "version" : "0.1 ",
+      "license" : "",
+      "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/couchdb/couchdb.jpg",
+      "lastModified" : "2014-11-04T23:55:14.732-08:00",
+      "tags" : [ ],
+      "packageName" : "couchdb"
+   }
+}

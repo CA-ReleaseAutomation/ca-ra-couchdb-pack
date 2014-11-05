@@ -1,0 +1,97 @@
+{
+   "RESTAction" : {
+      "actionPack" : {
+         "name" : "CouchDB",
+         "category" : "CouchDB",
+         "description" : "Integration actions for the CouchDB NoSQL document database.",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "Windows and Linux",
+         "version" : "0.1  ",
+         "license" : "",
+         "imageLocation" : "http://localhost:8080/RDKServer/workingDirectory/ActionPacks/couchdb/couchdb.jpg",
+         "lastModified" : "2014-11-04T23:55:14.732-08:00",
+         "tags" : [ ],
+         "packageName" : "couchdb"
+      },
+      "name" : "CouchDB - Replication",
+      "description" : "Setup replication for the CouchDB server.",
+      "inputParamList" : [ {
+         "name" : "user",
+         "type" : "String",
+         "description" : "The user to use in order to authenticate with CouchDB.",
+         "required" : false,
+         "variableName" : "user",
+         "arrayOption" : false
+      }, {
+         "name" : "password",
+         "type" : "String",
+         "description" : "The password to use in order to authenticate with CouchDB.",
+         "required" : false,
+         "variableName" : "password",
+         "arrayOption" : false
+      }, {
+         "name" : "Protocol",
+         "type" : "String",
+         "description" : "Connection protocol to the CouchDB server.",
+         "required" : false,
+         "defaultValue" : "http",
+         "variableName" : "protocol",
+         "arrayOption" : false
+      }, {
+         "name" : "Host",
+         "type" : "String",
+         "description" : "The host to connect to CouchDB on.",
+         "required" : false,
+         "defaultValue" : "localhost",
+         "variableName" : "host",
+         "arrayOption" : false
+      }, {
+         "name" : "Port",
+         "type" : "Integer",
+         "description" : "The numeric port that CouchDB is running on.",
+         "required" : false,
+         "defaultValue" : "5984",
+         "variableName" : "port",
+         "arrayOption" : false
+      }, {
+         "name" : "Source Database",
+         "type" : "String",
+         "required" : false,
+         "variableName" : "sourcedatabase",
+         "arrayOption" : false
+      }, {
+         "name" : "Target Database",
+         "type" : "String",
+         "required" : false,
+         "variableName" : "targetdatabase",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "Standard out from the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded.",
+      "type" : "REST",
+      "complete" : true,
+      "lastModified" : "2014-11-04T23:57:48.783-08:00",
+      "className" : "CouchDBReplication",
+      "packageName" : "com.ca.couchdb",
+      "requestURI" : "${Protocol}://${Host}:${Port}/_replicate",
+      "requestMethod" : "POST",
+      "timeout" : 30,
+      "contentType" : "",
+      "language" : "",
+      "bodyContent" : {
+         "contentType" : "application/json",
+         "encoding" : "utf-8",
+         "rawRequest" : "{\"source\":\"${Source Database}\", \"target\":\"${Target Database}\"}"
+      },
+      "authentication" : [ "BASIC" ]
+   }
+}
